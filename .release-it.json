@@ -1,5 +1,5 @@
 {
-  "hooks": {
-    "before:init": ["npm run pre-release"]
-  }
+    "hooks": {
+        "before:init": ["npm run pre-release"]
+    }
 }
