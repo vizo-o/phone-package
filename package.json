@@ -45,6 +45,7 @@
         "phone": "^3.1.44"
     },
     "overrides": {
+        "lodash": ">=4.17.24",
         "fast-xml-parser": ">=5.5.7",
         "minimatch": ">=10.2.1",
         "undici": ">=6.24.0"
