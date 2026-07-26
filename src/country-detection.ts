@@ -64,7 +64,7 @@ export function detectCountryFromPhoneNumber(
         }
 
         return COUNTRY_CODE_MAP[countryCode]
-    } catch (error) {
+    } catch (_error) {
         return null
     }
 }

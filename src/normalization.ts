@@ -238,7 +238,7 @@ export function normalizePhoneNumber(phoneNumber: string): string | null {
 
         // Return in E.164 format
         return result.phoneNumber
-    } catch (error) {
+    } catch (_error) {
         return null
     }
 }

@@ -17,8 +17,8 @@
         "build": "tsc",
         "watch": "tsc -w",
         "format": "prettier --write \"src/**/*.{ts,json}\" \"test/**/*.{ts,json}\" \"*.{json,js,mjs}\"",
-        "lint": "eslint \"{src,test}/**/*.ts\" --max-warnings=0 && prettier --check \"src/**/*.{ts,json}\" \"test/**/*.{ts,json}\" \"*.{json,js,mjs}\"",
-        "lint:fix": "eslint \"{src,test}/**/*.ts\" --fix --max-warnings=0 && prettier --write \"src/**/*.{ts,json}\" \"test/**/*.{ts,json}\" \"*.{json,js,mjs}\"",
+        "lint": "oxlint src test -c node_modules/@vizo-o/dev-tools/oxlint-config/oxlintrc.node.json",
+        "lint:fix": "oxlint src test -c node_modules/@vizo-o/dev-tools/oxlint-config/oxlintrc.node.json --fix",
         "audit:high": "npm audit --audit-level=high",
         "type-check": "tsc --noEmit",
         "test": "jest",
@@ -26,7 +26,10 @@
         "test:cov": "jest --coverage",
         "pre-release": "node scripts/pre-release.mjs",
         "release": "release-it",
-        "release:ci": "npm run pre-release && release-it --ci"
+        "release:ci": "npm run pre-release && release-it --ci",
+        "format:check": "prettier --check \"src/**/*.{ts,json}\" \"test/**/*.{ts,json}\" \"*.{json,js,mjs}\"",
+        "typecheck": "tsc --noEmit",
+        "typecheck:native": "tsgo --noEmit 2>/dev/null || tsc --noEmit"
     },
     "repository": {
         "type": "git",
@@ -52,20 +55,16 @@
         "undici": ">=7.28.0 <8.0.0"
     },
     "devDependencies": {
-        "@eslint/js": "^8.57.1",
         "@types/jest": "^30.0.0",
         "@types/node": "^22.13.10",
-        "@typescript-eslint/eslint-plugin": "^6.15.0",
-        "@typescript-eslint/parser": "^6.15.0",
-        "@vizo-o/dev-tools": "^1.0.59",
+        "@typescript/native-preview": "^7.0.0-dev",
+        "@vizo-o/dev-tools": "^1.0.61",
         "chalk": "^4.1.2",
-        "eslint": "^8.57.1",
-        "eslint-plugin-prettier": "^5.2.3",
-        "eslint-plugin-promise": "^6.6.0",
         "jest": "^30.2.0",
+        "oxlint": "^1.75.0",
         "prettier": "^3.4.2",
         "release-it": "^19.0.3",
         "ts-jest": "^29.4.5",
-        "typescript": "^5.8.2"
+        "typescript": "~5.8.2"
     }
 }
